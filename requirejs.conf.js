@@ -12,8 +12,13 @@ require.config({
     inherits: 'lib/inherits/inherits',
     json: 'lib/requirejs-plugins/src/json'
   },
+  map: {
+    '*': {
+      debug: 'streamhub-sdk/debug'
+    }
+  },
   packages: [{
-    name: "streamhub-wall",
+    name: "streamhub-faces",
     location: "./src"
   },{
     name: "streamhub-sdk",
@@ -40,20 +45,13 @@ require.config({
     name: "view",
     location: "lib/view/src",
     main: "view"
+  },{
+    name: 'auth',
+    location: 'lib/auth/src'
   }],
   shim: {
     jquery: {
         exports: '$'
-    },
-    jasmine: {
-        exports: 'jasmine'
-    },
-    'jasmine-html': {
-        deps: ['jasmine'],
-        exports: 'jasmine'
-    },
-    'jasmine-jquery': {
-        deps: ['jquery', 'jasmine']
     }
   }
 });
